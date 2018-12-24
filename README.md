@@ -1,5 +1,16 @@
 # Elastic stack (ELK) on Docker
 
+This is a customized version of [deviantony/docker-elk](https://github.com/deviantony/docker-elk) setup.
+I used this to locally test the Logstash setup before adjusting the Accept/Production environments.
+
+- Example Logstash Gelf input setup (logstash/pipeline/gelf.conf)
+- Example Logstash Filebeat input setup for Postgres logs. (logstash/pipeline/beats.conf)
+  - Filebeat comes with a bunch of indexes and templates to log into ES/Kibana. The `postgres-logging` contains the files related to PostgreSQL logging. These can be imported via Kibana -> Management -> Saved Objects -> Import.
+
+Note: On the Logstash service, the port 5000 and 5001 are disabled since they conflicted with another service I was testing.
+
+---
+
 [![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Elastic Stack version](https://img.shields.io/badge/ELK-6.5.4-blue.svg?style=flat)](https://github.com/deviantony/docker-elk/issues/344)
 [![Build Status](https://api.travis-ci.org/deviantony/docker-elk.svg?branch=master)](https://travis-ci.org/deviantony/docker-elk)
